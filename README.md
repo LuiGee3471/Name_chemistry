@@ -1,2 +1,13 @@
-# Name_chemistry
-이름 궁합 프로그램의 코드입니다.(Name_chemistry for Korean Name)
+# 이름 궁합 프로그램(Name chemistry for Korean Name)
+
+## 프로그램 설명
+이름의 각 글자 획수를 세서 더해나가서 두 명의 궁합을 %로 나타내보는 프로그램입니다.
+
+## 제작 동기
+재미와 기본 연습용으로 만들어보았습니다.
+
+## 파일 설명
+name_chemistry.exe : 단독 실행파일입니다. 사용을 원하는 분은 이 파일만 사용하면 됩니다.
+name_chemistry.py : 소스코드입니다.
+function.py : 프로그램에 사용하기 전 임시로 함수를 제작해본 파일입니다.
+partition.py : 한글 유니코드를 받아 초성, 중성, 종성으로 분리를 어떻게 할지 미리 연습해본 파일입니다.
