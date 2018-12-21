@@ -1,5 +1,4 @@
-import time
-import sys
+from time import sleep
 
 #database
 chosung = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ']
@@ -13,7 +12,6 @@ joongsung_stroke = {letter : joongsung_stroke_number[joongsung.index(letter)] fo
 jongsung_stroke = {letter : jongsung_stroke_number[jongsung.index(letter)] for letter in jongsung}
 hangul_list = [chr(i) for i in range(ord('가'), ord('힣')+1)]
 
-
 #functions
 def isHangul(name1, name2):
     hangul_checker = "hangul"
@@ -26,8 +24,7 @@ def isHangul(name1, name2):
     return hangul_checker
     
 def inputName():
-    check = 0
-    while check == 0 :
+    while True:
         name1 = input("첫 번째 이름을 입력하세요: ")
         name2 = input("두 번째 이름을 입력하세요: ")
         hangul_checker = isHangul(name1, name2)
@@ -46,7 +43,6 @@ def inputName():
                 print("\n이름을 다시 입력해주세요.\n")
             elif valid == "예" or valid == "네":
                 return(name1, name2)
-                check = 1
             else:
                 print("\n예, 아니오로 대답해주세요.")
 
@@ -79,7 +75,7 @@ def printStroke(strokelist):
         print(space, end="")
         for number in strokelist:
             print(str(number), end=" ")
-        time.sleep(0.5)
+        sleep(0.5)
         print('\n')
         strokelist = nextline(strokelist)
         space = space + " "
@@ -116,14 +112,14 @@ def name_chemistry():
     stroke_list2 = strokenumber(letter_list2)
     
     print("결과 계산 중...\n")
-    time.sleep(3)
+    sleep(3)
     
     printStroke(stroke_list1)
     result1 = stroke_to_result(stroke_list1)
     
     print("여러분의 1번째 이름 궁합은 " + result1 + "%입니다.")
     print("그리고...\n")
-    time.sleep(1.5)
+    sleep(1.5)
     
     printStroke(stroke_list2)
     result2 = stroke_to_result(stroke_list2)
