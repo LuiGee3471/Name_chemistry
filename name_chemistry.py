@@ -1,15 +1,43 @@
 from time import sleep
 
 #database
-chosung = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ']
-joongsung = ['ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 'ㅘ', 'ㅙ', 'ㅚ', 'ㅛ', 'ㅜ', 'ㅝ', 'ㅞ', 'ㅟ', 'ㅠ', 'ㅡ', 'ㅢ', 'ㅣ'] 
-jongsung = [' ', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ']
-chosung_stroke_number = [1, 2, 1, 2, 4, 3, 3, 4, 8, 2, 4, 1, 2, 4, 3, 2, 3, 4, 3]
-joongsung_stroke_number = [2, 3, 3, 4, 2, 3, 3, 4, 2, 4, 5, 3, 3, 2, 4, 5, 3, 3, 1, 2, 1]
-jongsung_stroke_number = [0, 1, 2, 3, 1, 3, 4, 2, 3, 4, 6, 7, 5, 6, 7, 6, 3, 4, 6, 2, 4, 1, 2, 3, 2, 3, 4, 3]
-chosung_stroke = {letter : chosung_stroke_number[chosung.index(letter)] for letter in chosung}
-joongsung_stroke = {letter : joongsung_stroke_number[joongsung.index(letter)] for letter in joongsung}
-jongsung_stroke = {letter : jongsung_stroke_number[jongsung.index(letter)] for letter in jongsung}
+chosung = [
+    'ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ',
+    'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'
+    ]
+joongsung = [
+    'ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 'ㅘ', 'ㅙ',
+    'ㅚ', 'ㅛ', 'ㅜ', 'ㅝ', 'ㅞ', 'ㅟ', 'ㅠ', 'ㅡ', 'ㅢ', 'ㅣ'
+    ] 
+jongsung = [
+    ' ', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ',
+    'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ',
+    'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'
+    ]
+chosung_stroke_number = [
+    1, 2, 1, 2, 4, 3, 3, 4, 8, 2,
+    4, 1, 2, 4, 3, 2, 3, 4, 3
+    ]
+joongsung_stroke_number = [
+    2, 3, 3, 4, 2, 3, 3, 4, 2, 4,
+    5, 3, 3, 2, 4, 5, 3, 3, 1, 2, 1
+    ]
+jongsung_stroke_number = [
+    0, 1, 2, 3, 1, 3, 4, 2, 3, 4, 6, 
+    7, 5, 6, 7, 6, 3, 4, 6, 2, 4, 1, 2, 3, 2, 3, 4, 3
+    ]
+chosung_stroke = {
+    letter : chosung_stroke_number[chosung.index(letter)] 
+    for letter in chosung
+    }
+joongsung_stroke = {
+    letter : joongsung_stroke_number[joongsung.index(letter)]
+    for letter in joongsung
+    }
+jongsung_stroke = {
+    letter : jongsung_stroke_number[jongsung.index(letter)]
+    for letter in jongsung
+    }
 hangul_list = [chr(i) for i in range(ord('가'), ord('힣')+1)]
 
 #functions
@@ -38,10 +66,17 @@ def inputName():
             continue
         valid = None
         while valid not in ("예", "네", "아니오"):
-            valid = input("\n입력하신 이름이 " + name1 + ", " + name2 +" 맞습니까? (예 / 아니오) ")
+            valid = input(
+                "\n입력하신 이름이 " 
+                + name1 
+                + ", " 
+                + name2 
+                + " 맞습니까? (예 / 아니오) "
+                )
             if valid == "아니오":
                 print("\n이름을 다시 입력해주세요.\n")
             elif valid == "예" or valid == "네":
+                print("")
                 return(name1, name2)
             else:
                 print("\n예, 아니오로 대답해주세요.")
@@ -61,12 +96,18 @@ def strokenumber(letterlist):
     jongindex = [((ordnum - base % 588) % 28) for ordnum in ordData]
     cholist = [chosung_stroke[chosung[index]] for index in choindex]
     joonglist = [joongsung_stroke[joongsung[index]] for index in joongindex]
-    jonglist = [jongsung_stroke[jongsung[index]] for index in jongindex] 
-    stroke_list = [cholist[i] + joonglist[i] + jonglist[i] for i in range(len(letterlist))]
+    jonglist = [jongsung_stroke[jongsung[index]] for index in jongindex]
+    stroke_list = [
+        cholist[i] + joonglist[i] + jonglist[i]
+        for i in range(len(letterlist))
+        ]
     return stroke_list
     
 def nextline(line):
-    nextline = [int(str(line[i] + line[i+1])[1]) if len(str(line[i] + line[i+1])) == 2 else int(str(line[i] + line[i+1])) for i in range(len(line) - 1)]
+    nextline = [
+        int(str(line[i] + line[i+1])[1]) if len(str(line[i] + line[i+1])) == 2
+         else int(str(line[i] + line[i+1])) for i in range(len(line) - 1)
+        ]
     return nextline
     
 def printStroke(strokelist):
@@ -84,7 +125,8 @@ def stroke_to_result(strokelist):
     resultlist = strokelist
     for i in range(4):
         resultlist = nextline(resultlist)
-    return str(resultlist[1]) if resultlist[0] == 0 else str(resultlist[0]) + str(resultlist[1])
+    return str(resultlist[1]) if resultlist[0] == 0 \
+                              else str(resultlist[0]) + str(resultlist[1])
 
 def retry():
     retry = None
@@ -102,7 +144,7 @@ def name_chemistry():
     
     name = inputName()
     
-    print("\n" + name[0] + "님과 " + name[1] + "님의 이름 궁합을 확인합니다.\n")
+    print(name[0] + "님과 " + name[1] + "님의 이름 궁합을 확인합니다.\n")
     
     letter_list1 = letter_list(name)
     rname = tuple(reversed(name))
